@@ -20,6 +20,4 @@ Route::get('/', function () {
 Route::get('/master', function () {
     return view('admin.layouts.master');
 });
-Route::get('/masters', function () {
-    return view('admin.home');
-});
+

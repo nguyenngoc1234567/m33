@@ -6,25 +6,27 @@ use Illuminate\Http\Request;
 
 class PhotoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function index()
     {
         //
+        $ho_va_ten = 'nguyenvana';
+        $email='email';
+       //$params = [
+    //     'ho_va_ten' => $ho_va_ten,
+    // email => $email,
+    //    ];
+    // return view('photo.index'$params);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+  
     public function create()
     {
-        //
-        echo ' vo trang them moi';
+    //$params = [
+    // 'ho_va_ten' => $ho_va_ten,
+    // email => $email,
+    //    ];
+    // return view('photo.create',$params);
     }
 
     /**

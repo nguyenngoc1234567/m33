@@ -4,7 +4,6 @@ integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WT
 <form method="POST" action="{{route('categories.update',[$category->id])}}" enctype= "multipart/form-data" >
     @method('PUT')
     @csrf
-
     <div class="row">
         <div class="col-lg-8 mx-auto">
          <div class="card">
@@ -13,15 +12,12 @@ integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WT
              </div>
            <div class="card-body">
              <div class="border p-3 rounded">
-             <form class="row g-3">
+             <div class="row g-3">
 
                <div class="col-12">
                  <label class="form-label">name</label>
                  <input type="text" class="form-control" value="{{$category->name}}" name="name">
                </div>
-
-
-
             <input type="submit" value="Submit">
 
              </div>

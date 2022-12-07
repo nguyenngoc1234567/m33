@@ -11,18 +11,9 @@
            <div class="card-body">
              <div class="border p-3 rounded">
              <form class="row g-3">
-
-
-
-
                <div class="col-12">
                  <label class="form-label">name</label>
                  <input type="name" class="form-control" name="name" >
-
-
-
-
-
              </form>
              <div class="col-12">
                 <button class="btn btn-primary px-4">Submit Item</button>
