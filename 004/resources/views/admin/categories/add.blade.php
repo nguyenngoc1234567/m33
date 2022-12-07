@@ -1,3 +1,5 @@
+@extends('admin.layouts.master')
+@section('content')
 <form action="{{route('categories.store')}}" method = 'post'>
     @csrf
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -6,7 +8,7 @@
         <div class="col-lg-8 mx-auto">
          <div class="card">
            <div class="card-header py-3 bg-transparent">
-              <h5 class="mb-0">THÊM MỚI DANH MỤC CHI TIÊU</h5>
+              <h5 class="mb-0">THÊM MỚI DANH MỤC </h5>
              </div>
            <div class="card-body">
              <div class="border p-3 rounded">
@@ -24,3 +26,4 @@
         </div>
      </div><!--end row-->
 </form>
+@endsection

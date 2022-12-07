@@ -1,3 +1,5 @@
+@extends('admin.layouts.master')
+@section('content')
 <h1>Danh sách chi tiêu</h1>
 <div class="container">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -37,3 +39,4 @@
     </tbody>
   </table>
 </div>
+@endsection
