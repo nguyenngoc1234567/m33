@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\OrdersController;
+use App\Http\Controllers\product_codesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Models\Product;
@@ -37,6 +39,24 @@ use App\Models\Category;
     Route::put('/update-products/{id}', [ProductController::class, 'update'])->name('products.update');
     Route::delete('destroy-products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
 
+
+    Route::get('/productcode', [product_codesController::class, 'index'])->name('productcode.index');
+    Route::get('/create-productcode', [product_codesController::class, 'create'])->name('productcode.create');
+    Route::post('/store-productcode', [product_codesController::class, 'store'])->name('productcode.store');
+    Route::get('/show-productcode/{id}', [product_codesController::class, 'show'])->name('productcode.show');
+    Route::get('/edit-productcode/{id}', [product_codesController::class, 'edit'])->name('productcode.edit');
+    Route::put('/update-productcode/{id}', [product_codesController::class, 'update'])->name('productcode.update');
+    Route::delete('destroy-productcode/{id}', [product_codesController::class, 'destroy'])->name('productcode.destroy');
+
+
+
+    Route::get('/orders', [OrdersController::class, 'index'])->name('orders.index');
+    Route::get('/create-orders', [OrdersController::class, 'create'])->name('orders.create');
+    Route::post('/store-orders', [OrdersController::class, 'store'])->name('orders.store');
+    Route::get('/show-orders/{id}', [OrdersController::class, 'show'])->name('orders.show');
+    Route::get('/edit-orders/{id}', [OrdersController::class, 'edit'])->name('orders.edit');
+    Route::put('/update-orders/{id}', [OrdersController::class, 'update'])->name('orders.update');
+    Route::delete('destroy-orders/{id}', [OrdersController::class, 'destroy'])->name('orders.destroy');
 
 
     Route::get('hasOne',function(){

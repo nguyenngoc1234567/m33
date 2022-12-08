@@ -1,6 +1,7 @@
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
 integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-<form method="POST" action="{{route('products.update',[$products->id])}}" enctype= "multipart/form-data" >
+<form method="POST" action="{{route('categories.update',[$category->id])}}" enctype= "multipart/form-data" >
     @method('PUT')
     @csrf
     <div class="row">
@@ -14,16 +15,8 @@ integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WT
              <div class="row g-3">
 
                <div class="col-12">
-                 <label class="form-label">code</label>
-                 <input type="text" class="form-control" value="{{$products->code}}" name="code">
-               </div>
-               <div class="col-12">
-                 <label class="form-label">price</label>
-                 <input type="text" class="form-control" value="{{$products->price}}" name="price">
-               </div>
-               <div class="col-12">
-                 <label class="form-label">category_id</label>
-                 <input type="text" class="form-control" value="{{$products->category_id}}" name="category_id">
+                 <label class="form-label">name</label>
+                 <input type="text" class="form-control" value="{{$category->name}}" name="name">
                </div>
             <input type="submit" value="Submit">
 
@@ -34,3 +27,4 @@ integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WT
      </div>
 
 </form>
+

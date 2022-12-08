@@ -1,6 +1,6 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
 integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-<form method="POST" action="{{route('products.update',[$products->id])}}" enctype= "multipart/form-data" >
+<form method="POST" action="{{route('productcode.update',[$products->id])}}" enctype= "multipart/form-data" >
     @method('PUT')
     @csrf
     <div class="row">
@@ -18,13 +18,10 @@ integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WT
                  <input type="text" class="form-control" value="{{$products->code}}" name="code">
                </div>
                <div class="col-12">
-                 <label class="form-label">price</label>
-                 <input type="text" class="form-control" value="{{$products->price}}" name="price">
+                 <label class="form-label">product_id</label>
+                 <input type="text" class="form-control" value="{{$products->product_id}}" name="product_id">
                </div>
-               <div class="col-12">
-                 <label class="form-label">category_id</label>
-                 <input type="text" class="form-control" value="{{$products->category_id}}" name="category_id">
-               </div>
+
             <input type="submit" value="Submit">
 
              </div>
@@ -34,3 +31,4 @@ integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WT
      </div>
 
 </form>
+
