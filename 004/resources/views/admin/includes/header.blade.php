@@ -60,7 +60,7 @@
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
 
-        <li class="nav-item d-block d-lg-none">
+        {{-- <li class="nav-item d-block d-lg-none">
           <a class="nav-link nav-icon search-bar-toggle " href="#">
             <i class="bi bi-search"></i>
           </a>
@@ -205,7 +205,7 @@
 
           </ul><!-- End Messages Dropdown Items -->
 
-        </li><!-- End Messages Nav -->
+        </li><!-- End Messages Nav --> --}}
 
         <li class="nav-item dropdown pe-3">
 
@@ -254,9 +254,15 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <form method="POST" action="{{ route('shoplogout') }}">
+                @csrf
+                <a href="#"onclick="event.preventDefault();
+                this.closest('form').submit();"
+            class="dropdown-item d-flex align-items-center">Đăng xuất</a>
+        </form>
+              {{-- <a class="dropdown-item d-flex align-items-center" href="{{route('shoplogout')}}">
                 <i class="bi bi-box-arrow-right"></i>
-                <span>Sign Out</span>
+                <span>Sign Out</span> --}}
               </a>
             </li>
 

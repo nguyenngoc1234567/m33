@@ -5,6 +5,7 @@ use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\product_codesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 use App\Models\Product;
 use App\Models\Order;
 use App\Models\ProductCode;
@@ -20,9 +21,25 @@ use App\Models\Category;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('login',function(){
+    return view('admin.login.login');
+});
+Route::get('dangki',function(){
+    return view('admin.login.dangki');
+});
 
 
-    Route::get('/', [CategoryController::class, 'index'])->name('categories.index');
+
+Route::post('/shoplogout', [UserController::class, 'logout'])->name('shoplogout');
+
+Route::get('/viewlogin', [UserController::class, 'viewlogin'])->name('viewlogin');
+Route::post('/checklogin', [UserController::class, 'checklogin'])->name('shop.checklogin');
+
+Route::get('/register', [UserController::class, 'register'])->name('shop.register');
+Route::post('/checkregister', [UserController::class, 'checkregister'])->name('shop.checkregister');
+
+
+    Route::get('/home', [CategoryController::class, 'index'])->name('categories.index');
     Route::get('/create', [CategoryController::class, 'create'])->name('categories.create');
     Route::post('/store', [CategoryController::class, 'store'])->name('categories.store');
     Route::get('/show/{id}', [CategoryController::class, 'show'])->name('categories.show');
@@ -63,6 +80,7 @@ use App\Models\Category;
     $item = Product::find(5);
     dd($item);
 });
+
 
 Route::get('hasOneInverse',function(){
     $item = Product::find(6);
