@@ -108,12 +108,40 @@ Route::get('cau12', function () {
 });
 
 Route::get('cau122', function () {
-$items = DB::table('chitietdathang')
+    $items = DB::table('chitietdathang')
         ->select('SOHOADON', DB::raw('sum(SOLUONG * GIABAN - MUCGIAMGIA / 100)'))
         ->groupBy('SOHOADON')
         ->having('SOHOADON', '3')
         ->get();
-        dd($items);
-    });
-
-
+    dd($items);
+});
+Route::get('cau14', function () {
+    $items = DB::table('nhanvien')
+        ->select('HO', 'TEN', 'NGAYSINH',)
+        ->groupBy('HO', 'TEN', 'NGAYSINH')
+        ->havingRaw('COUNT(*) > 1')
+        ->get();
+    dd($items);
+});
+Route::get('cau16', function () {
+    $items = DB::table('khachhang')
+        ->select('khachhang.TENCONGTY', 'khachhang.TENGIAODICH', 'khachhang.DIACHI', 'khachhang.DIENTHOAI', 'nhacungcap.TENCONGTY', 'nhacungcap.TENGIAODICH', 'nhacungcap.DIACHI', 'nhacungcap.DIENTHOAI')
+        ->join('nhacungcap', 'nhacungcap.DIACHI', '=', 'khachhang.DIACHI')
+        ->get();
+    dd($items);
+});
+Route::get('cau17', function () {
+    $items = DB::table('mathang')
+        ->select('mathang.*')
+        ->leftJoin('chitietdathang', 'mathang.MAHANG', '=', 'chitietdathang.MAHANG')
+        ->where('chitietdathang.MAHANG', '=', null)
+        ->get();
+    dd($items);
+});
+Route::get('cau19', function () {
+    $items = DB::table('nhanvien')
+        ->select('HO', 'TEN', 'LUONGCOBAN as LUONGCAONHATCONGTY')
+        ->orderByRaw('LUONGCOBAN DESC')
+        ->get();
+    dd($items);
+});
