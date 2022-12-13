@@ -5,6 +5,7 @@ use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\product_codesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\shopController;
 use App\Http\Controllers\UserController;
 use App\Models\Product;
 use App\Models\Order;
@@ -21,9 +22,19 @@ use App\Models\Category;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('index',function(){
+    return view('shop.shop');
+});
+Route::get('/shopindex', [shopController::class, 'index'])->name('shoplogout');
+
+
+
+
+
 Route::get('login',function(){
     return view('admin.login.login');
 });
+
 Route::get('dangki',function(){
     return view('admin.login.dangki');
 });
