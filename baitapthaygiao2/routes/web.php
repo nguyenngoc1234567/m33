@@ -106,15 +106,18 @@ Route::get('cau12', function () {
         ->get();
     dd($items);
 });
-
 Route::get('cau122', function () {
-    $items = DB::table('chitietdathang')
-        ->select('SOHOADON', DB::raw('sum(SOLUONG * GIABAN - MUCGIAMGIA / 100)'))
-        ->groupBy('SOHOADON')
-        ->having('SOHOADON', '3')
-        ->get();
-    dd($items);
+
+$table=DB::table('dondathang')
+->join('chitietdathang', 'dondathang.SOHOADON', '=', 'chitietdathang.SOHOADON')
+->join('mathang', 'chitietdathang.MAHANG', '=', 'mathang.MAHANG')
+->select(DB::raw('sum(chitietdathang.SOLUONG*chitietdathang.GIABAN) as total, chitietdathang.MAHANG '))
+->where('chitietdathang.SOHOADON', '=', '3')
+->groupBy('chitietdathang.MAHANG')->get();
+dd($table);
 });
+
+
 Route::get('cau14', function () {
     $items = DB::table('nhanvien')
         ->select('HO', 'TEN', 'NGAYSINH',)

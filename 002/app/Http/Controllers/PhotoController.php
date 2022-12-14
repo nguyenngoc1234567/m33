@@ -6,9 +6,12 @@ use Illuminate\Http\Request;
 
 class PhotoController extends Controller
 {
-   
-    public function index()
+
+    public function index( Request $request)
     {
+        // luu session
+        $request->session()->put('ho_va_ten','nguyen van a ');
+
         //
         $ho_va_ten = 'nguyenvana';
         $email='email';
@@ -17,9 +20,10 @@ class PhotoController extends Controller
     // email => $email,
     //    ];
     // return view('photo.index'$params);
+
     }
 
-  
+
     public function create()
     {
     //$params = [

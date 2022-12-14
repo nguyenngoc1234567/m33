@@ -6,8 +6,8 @@
     <div class="row justify-content-center">
       <div class="col-lg-12">
         <div class="main_title">
-          <h2><span>Featured product</span></h2>
-          <p>Bring called seed first of third give itself now ment</p>
+          <h2><span>sản phẩm nổi bật </span></h2>
+          <p> </p>
         </div>
       </div>
     </div>
@@ -19,6 +19,7 @@
         <div class="single-product">
           <div class="product-img">
             <img class="img-fluid w-100" src="{{asset('shop/img/product/inspired-product/iphone13.jpg')}}" alt="" />
+            {{-- src="{{ asset('public/uploads/product/'.$product->image) }}" --}}
             <div class="p_icon">
               <a href="#">
                 <i class="ti-eye"></i>

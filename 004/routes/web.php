@@ -29,8 +29,6 @@ Route::get('/shopindex', [shopController::class, 'index'])->name('shoplogout');
 
 
 
-
-
 Route::get('login',function(){
     return view('admin.login.login');
 });
