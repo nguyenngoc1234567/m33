@@ -49,15 +49,49 @@ class UserController extends Controller
     {
         return view('admin.login.login');
     }
+  //xử lí đăng nhập
+  public function login(Request $request){
+    $validated = $request->validate([
+        'email' => 'required',
+        'password'=>'required|min:6',
+    ],
+        [
+            'email.required'=>'Không được để trống',
+            'password.required'=>'Không được để trống',
+            'password.min'=>'Lớn hơn :min',
+        ]
+);
+
+      $credentials = $request->validate([
+          'email' => ['required', 'email'],
+          'password' => ['required'],
+      ]);
+
+      if (Auth::attempt($credentials)) {
+
+          $request->session()->regenerate();
+
+          return redirect()->route('categories.index');
+      }
+      // dd($request->all());
+      return back()->withErrors([
+          'email' => 'Thông tin đăng nhập được cung cấp không khớp với hồ sơ của chúng tôi.',
+      ])->onlyInput('email');
+  }
+
 
     public function checklogin(Request $request)
     {
-        $arr = [
-            'email' => $request->email,
-            'password' => $request->password
-        ];
 
-            return redirect()->route('categories.index');
+            $arr = [
+                'email' => $request->email,
+                'password' => $request->password
+            ];
+            // if (Auth::guard('users')->attempt($arr)) {
+                return redirect()->route('categories.index');
+            // } else {
+            //     return redirect()->route('viewlogin');
+            // }
 
     }
     public function logout(Request $request)

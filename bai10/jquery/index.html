@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://code.jquery.com/jquery-3.6.2.min.js"></script>
+<body>
+   
+  <script>
+    
+    /*$(selector).method();
+    selector 
+        tag : $('tag')
+        class : $('.class')
+        id : $('#id')
+    method
+        val() :tra ve gia trij cua ro input=> .value
+        show() : hieern thi phaanf tu
+        hide() : an phan tu 
+        html() : innerhtml
+        click() : bat su kien on click
+        change() : bat su kien on change 
+    */
+  </script>
+  <form action="" method="get">
+    Username: <input type="text" name="username" id="username">
+    <p id="error_username"class="error"> </p>
+    <br>
+    Password: <input type="password" name="password" id="password">
+    <p id="error_password"class="error"> </p>
+    <input type="button" value="Login" id="login">
+</form>
+<p id="kq"></p>
+<script>
+  $('#login').click(function(){
+    let username = $('#username').val();
+    let password = $('#password').val();
+    // console.log(username, password);
+    //xoa noi dung cu 
+    $('.error').text('');
+    if(username==''){
+        $('#error_username').text('vui long nhap ')
+    }
+    if(password==''){
+        $('#error_password').text('vui mat khau  ')
+    }
+    if(username&&password){
+      let smg ='ten dang nhap:'+ username;
+        smg += '<br>mat khau la'+password;
+    $('#kq').html(smg)
+
+    let ajaxSetting = {
+                    url : 'ajax.php',
+                    method: 'POST',
+                    dataType: 'json',
+                    data : {
+                        username : username,
+                        password : password
+                    },
+                    success: function( res ){
+
+                    }
+                };
+                $.ajax( ajaxSetting );
+    }
+
+  });
+    
+  </script>
+
+</body>
+</html>

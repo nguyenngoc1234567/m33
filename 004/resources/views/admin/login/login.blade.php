@@ -1,157 +1,186 @@
-
-
-
 <style>
-    /* Made with love by Mutiullah Samim*/
-
-@import url('https://fonts.googleapis.com/css?family=Numans');
-
-html,body{
-background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
-background-size: cover;
-background-repeat: no-repeat;
-height: 100%;
-font-family: 'Numans', sans-serif;
-}
-
-.container{
-height: 100%;
-align-content: center;
-}
-
-.card{
-height: 370px;
-margin-top: auto;
-margin-bottom: auto;
-width: 400px;
-background-color: rgba(0,0,0,0.5) !important;
-}
-
-.social_icon span{
-font-size: 60px;
-margin-left: 10px;
-color: #FFC312;
-}
-
-.social_icon span:hover{
-color: white;
-cursor: pointer;
-}
-
-.card-header h3{
-color: white;
-}
-
-.social_icon{
-position: absolute;
-right: 20px;
-top: -45px;
-}
-
-.input-group-prepend span{
-width: 50px;
-background-color: #FFC312;
-color: black;
-border:0 !important;
-}
-
-input:focus{
-outline: 0 0 0 0  !important;
-box-shadow: 0 0 0 0 !important;
-
-}
-
-.remember{
-color: white;
-}
-
-.remember input
-{
-width: 20px;
-height: 20px;
-margin-left: 15px;
-margin-right: 5px;
-}
-
-.login_btn{
-color: black;
-background-color: #FFC312;
-width: 100px;
-}
-
-.login_btn:hover{
-color: black;
-background-color: white;
-}
-
-.links{
-color: white;
-}
-
-.links a{
-margin-left: 4px;
-}
+    @import url('https://fonts.googleapis.com/css?family=Abel|Abril+Fatface|Alegreya|Arima+Madurai|Dancing+Script|Dosis|Merriweather|Oleo+Script|Overlock|PT+Serif|Pacifico|Playball|Playfair+Display|Share|Unica+One|Vibur');
+    /* End Fonts */
+    /* Start Global rules */
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    /* End Global rules */
+    /* Start body rules */
+    body {
+        background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
+        background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        font-family: 'Vibur', cursive;
+        /*   the main font */
+        font-family: 'Abel', sans-serif;
+        opacity: .95;
+        /* background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%); */
+    }
+    /* |||||||||||||||||||||||||||||||||||||||||||||*/
+    /* //////////////////////////////////////////// */
+    /* End body rules */
+    /* Start form  attributes */
+    form {
+        width: 450px;
+        min-height: 500px;
+        height: auto;
+        border-radius: 5px;
+        margin: 2% auto;
+        box-shadow: 0 9px 50px hsla(20, 67%, 75%, 0.31);
+        padding: 2%;
+        background-image: linear-gradient(-225deg, #E3FDF5 50%, #FFE6FA 50%);
+    }
+    /* form Container */
+    form .con {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: space-around;
+        justify-content: space-around;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin: 0 auto;
+    }
+    /* the header form form */
+    header {
+        margin: 2% auto 10% auto;
+        text-align: center;
+    }
+    /* Login title form form */
+    header h2 {
+        font-size: 250%;
+        font-family: 'Playfair Display', serif;
+        color: #3e403f;
+    }
+    /*  A welcome message or an explanation of the login form */
+    header p {
+        letter-spacing: 0.05em;
+    }
+    /* //////////////////////////////////////////// */
+    /* //////////////////////////////////////////// */
+    .input-item {
+        background: #fff;
+        color: #333;
+        padding: 14.5px 0px 15px 9px;
+        border-radius: 5px 0px 0px 5px;
+    }
+    /* Show/hide password Font Icon */
+    #eye {
+        background: #fff;
+        color: #333;
+        margin: 5.9px 0 0 0;
+        margin-left: -20px;
+        padding: 15px 9px 19px 0px;
+        border-radius: 0px 5px 5px 0px;
+        float: right;
+        position: relative;
+        right: 1%;
+        top: -.2%;
+        z-index: 5;
+        cursor: pointer;
+    }
+    /* inputs form  */
+    input[class="form-input"] {
+        width: 240px;
+        height: 50px;
+        margin-top: 2%;
+        padding: 15px;
+        font-size: 16px;
+        font-family: 'Abel', sans-serif;
+        color: #5E6472;
+        outline: none;
+        border: none;
+        border-radius: 0px 5px 5px 0px;
+        transition: 0.2s linear;
+    }
+    input[id="txt-input"] {
+        width: 380px;
+    }
+    input:focus {
+        transform: translateX(-2px);
+        border-radius: 5px;
+    }
+    button {
+        display: inline-block;
+        color: #252537;
+        width: 280px;
+        height: 50px;
+        padding: 0 20px;
+        background: #fff;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+        transition: all 0.2s linear;
+        margin: 7% auto;
+        letter-spacing: 0.05em;
+    }
+    /* Submits */
+    .submits {
+        width: 48%;
+        display: inline-block;
+    }
+    /*       Forgot Password button FAF3DD  */
+    .frgt-pass {
+        background: transparent;
+    }
+    /*     Sign Up button  */
+    .sign-up {
+        background: #B8F2E6;
+    }
+    /* buttons hover */
+    button:hover {
+        transform: translatey(3px);
+        box-shadow: none;
+    }
+    /* buttons hover Animation */
+    button:hover {
+        animation: ani9 0.4s ease-in-out infinite alternate;
+    }
+    @keyframes ani9 {
+        0% {
+            transform: translateY(3px);
+        }
+        100% {
+            transform: translateY(5px);z
+        }
+    }
 </style>
-
-
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Login Page</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-<body>
-<div class="container">
-	<div class="d-flex justify-content-center h-100">
-		<div class="card">
-			<div class="card-header">
-				<h3>Sign In</h3>
-				<div class="d-flex justify-content-end social_icon">
-					<span><i class="fab fa-facebook-square"></i></span>
-					<span><i class="fab fa-google-plus-square"></i></span>
-					<span><i class="fab fa-twitter-square"></i></span>
-				</div>
-			</div>
-			<div class="card-body">
-				<form action="{{route('shop.checklogin')}}" method="post">
-                    @csrf
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-user"></i></span>
-						</div>
-						<input type="text" name="Email" class="form-control" placeholder="email">
-
-					</div>
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-key"></i></span>
-						</div>
-						<input type="password" name="Password" class="form-control" placeholder="password">
-					</div>
-					<div class="row align-items-center remember">
-						<input type="checkbox">Remember Me
-					</div>
-					<div class="form-group">
-						<input type="submit" name="dangnhap" value="Login" class="btn float-right login_btn">
-					</div>
-				</form>
-			</div>
-			<div class="card-footer">
-				<div class="d-flex justify-content-center links">
-					Don't have an account?<a href="{{route('shop.register')}}">Sign Up</a>
-				</div>
-				<div class="d-flex justify-content-center">
-					<a href="#">Forgot your password?</a>
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="overlay">
+    <form action="{{ Route('handdle-login') }}" method="post">
+        @csrf
+        <div class="con">
+            <header class="head-form">
+                <h2>Đăng nhập</h2>
+                <p>Đăng nhập ở đây bằng tên người dùng và mật khẩu của bạn</p>
+            </header>
+            <br>
+            <div class="field-set">
+                Email
+                <input class="form-input" id="txt-input" type="email" name="email" required="">
+                @error('email')
+                <div style="color: red">{{$message}}</div>
+        @enderror
+                Password
+                <input class="form-input" type="password" id="txt-input" name="password" required="">
+                @error('password')
+                <div style="color: red">{{$message}}</div>
+        @enderror
+            </div>
+            <div class="other">
+                {{-- <button class="btn submits frgt-pass" ><a href="{{ route('viewRegister') }}">Đăng kí tài khoản</a></button> --}}
+                <button class="btn submits frgt-pass">Quên mật khẩu</button>
+            </div>
+            <button class="btn submits sign-up">Đăng nhập<i class="fa fa-user-plus" ></i></button>
+        </div>
+    </form>
 </div>
-</body>
-</html>
+
+
+
+
+

@@ -25,13 +25,17 @@ use App\Models\Category;
 Route::get('index',function(){
     return view('shop.shop');
 });
+
 Route::get('/shopindex', [shopController::class, 'index'])->name('shoplogout');
 
 
+Route::get('/login', [UserController::class, 'viewLogin'])->name('login');
+Route::post('handdle-login', [UserController::class, 'login'])->name('handdle-login');
 
-Route::get('login',function(){
-    return view('admin.login.login');
-});
+
+// Route::get('login',function(){
+//     return view('admin.login.login');
+// });
 
 Route::get('dangki',function(){
     return view('admin.login.dangki');
