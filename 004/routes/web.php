@@ -27,8 +27,9 @@ Route::get('index',function(){
 });
 
 Route::get('/shopindex', [shopController::class, 'index'])->name('shoplogout');
-
-
+Route::get('/cart', [ShopController::class, 'cart'])->name('cart.index');
+Route::get('/store/{id}', [ShopController::class, 'store'])->name('shop.store');
+Route::get('/checkOuts', [ShopController::class, 'checkOuts'])->name('checkOuts');
 Route::get('/login', [UserController::class, 'viewLogin'])->name('login');
 Route::post('handdle-login', [UserController::class, 'login'])->name('handdle-login');
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -14,11 +15,21 @@ class shopController extends Controller
      */
     public function index()
     {
-        $product = Product::all();
+        $product = Product::get();
         $param =[
             'product'=> $product
           ];
-        return view('shop.shop', $param );
+        return view('shop.shop',$param );
+    }
+    public function cart()
+    {
+        $products = Product::get();
+        $categories = Category::all();
+        $param = [
+            'products' => $products,
+            'categories' => $categories,
+        ];
+        return view('shop.cart', $param);
     }
 
     /**
@@ -30,6 +41,10 @@ class shopController extends Controller
     {
         //
     }
+    public function checkOuts()
+    {
+        return view('shop.checkout');
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -37,9 +52,26 @@ class shopController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id)
     {
-        //
+        $product = Product::findOrFail($id);
+        $cart = session()->get('cart', []);
+        if (isset($cart[$id])) {
+            $cart[$id]['quantity']++;
+        } else {
+            $cart[$id] = [
+                "nameVi" => $product->name,
+                "quantity" => 1,
+                "price" => $product->price,
+                'image' => $product->image,
+                'max' => $product->quantity,
+            ];
+        }
+        session()->put('cart', $cart);
+        $data = [];
+        $data['cart'] = session()->has('cart');
+        // dd($data);
+        return redirect()->route('cart.index');
     }
 
     /**

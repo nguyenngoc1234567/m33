@@ -216,7 +216,7 @@
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6>Kevin Anderson</h6>
+              <h6>Nguyễn Như Ngọc</h6>
               <span>Web Designer</span>
             </li>
             <li>
@@ -266,10 +266,9 @@
               </a>
             </li>
 
-          </ul><!-- End Profile Dropdown Items -->
-        </li><!-- End Profile Nav -->
-
+          </ul>
+        </li>
       </ul>
-    </nav><!-- End Icons Navigation -->
+    </nav>
 
-  </header><!-- End Header -->
+  </header>
