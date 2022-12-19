@@ -32,7 +32,7 @@ Route::get('/store/{id}', [ShopController::class, 'store'])->name('shop.store');
 Route::get('/checkOuts', [ShopController::class, 'checkOuts'])->name('checkOuts');
 Route::get('/login', [UserController::class, 'viewLogin'])->name('login');
 Route::post('handdle-login', [UserController::class, 'login'])->name('handdle-login');
-
+Route::get('/showProduct/{id}', [ShopController::class, 'show'])->name('shop.showProduct');
 
 // Route::get('login',function(){
 //     return view('admin.login.login');

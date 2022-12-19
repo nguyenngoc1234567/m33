@@ -82,7 +82,13 @@ class shopController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = Product::find($id);
+        $categorys = Category::get();
+        $param = [
+            'product' => $product,
+            'categorys' => $categorys
+        ];
+        return view('shop.showproduct',$param);
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,10 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.products.add');
+        $category = Category::all();
+        return view('admin.products.add', compact(['category']));
+
+
     }
 
     /**
@@ -41,6 +45,16 @@ class ProductController extends Controller
         $products->name = $request->name;
         $products->price = $request->price;
         $products->category_id = $request->category_id;
+        if ($request->hasFile('image')) {
+            $get_image = $request->file('image');
+            $path = 'public\uploads\product';
+            $get_name_image = $get_image->getClientOriginalName();
+            $name_image = current(explode('.', $get_name_image));
+            $new_image = $name_image . rand(0, 99) . '.' . $get_image->getClientOriginalExtension();
+            $get_image->move($path, $new_image);
+            $products->image = $new_image;
+            $data['product_image'] = $new_image;
+        }
         $products->save();
         // return redirect('home');
         return redirect()->route('products.index');
@@ -66,8 +80,13 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $products = Product::find($id);
-        return view('admin.products.edit', compact(['products']));
+        $product = Product::find($id);
+        $categories=Category::get();
+        $param = [
+            'product' => $product ,
+            'categories' => $categories
+        ];
+        return view('admin.products.edit' , $param);
     }
 
     /**
@@ -83,6 +102,22 @@ class ProductController extends Controller
         $products->name = $request->input('name');
         $products->price = $request->input('price');
         $products->category_id = $request->input('category_id');
+        $get_image=$request->image;
+        if($get_image){
+            $path='public/uploads/product/'.$products->image;
+            if(file_exists($path)){
+                unlink($path);
+            }
+        $path='public/uploads/product/';
+        $get_name_image=$get_image->getClientOriginalName();
+        $name_image=current(explode('.',$get_name_image));
+        $new_image=$name_image.rand(0,99).'.'.$get_image->getClientOriginalExtension();
+        $get_image->move($path,$new_image);
+        $products->image=$new_image;
+        // dd($product);
+
+        $data['product_image']=$new_image;
+        }
         $products->save();
 
         return redirect()->route('products.index');

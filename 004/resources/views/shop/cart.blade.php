@@ -8,6 +8,7 @@
                         <thead>
                             <tr>
                                 <th scope="col">sản phẩm </th>
+                                <th scope="col">Ảnh </th>
                                 <th scope="col">giá</th>
                                 <th scope="col">số lượng</th>
                                 <th scope="col">tổng</th>
@@ -26,30 +27,36 @@
                                         $totalAll += $total;
 
                                     @endphp
-                                    <tr>
-
-                                        <td class="align-middle">
-                                            <img src="{{ asset('public/uploads/product/' . $details['image']) }}"
-                                                alt="" style="width: 50px;"><a>{{ $details['nameVi'] ?? '' }}</a>
-                                        </td>
-
-                                        <td class="align-middle"> {{ number_format($details['price']) }} Vnd</td>
-
-                                        <td >
-
-                                           {{ $details['quantity'] }}
-
-                                        </td>
-                                        <td class="align-middle"> {{ number_format($total) }} Vnd</td>
-                                        <td class="align-middle">
-                                            <button class="btn btn-sm btn-danger" ><a data-href=""
-                                                class="btn btn-danger btn-sm fa fa-window-close"
-                                                id="{{ $id }}">Xóa</a></button>
-                                        </td>
-                                    </tr>
+                                   <tr>
+                                    <td class="align-middle">
+                                        <img src="{{ asset('public/uploads/product/'.$details['image']) }}" alt="" style="width: 50px;"></td>
+                                       <td class="align-middle"> <a>{{ $details['nameVi'] ?? '' }}</a></td>
+                                    <td class="align-middle">Vnd {{ number_format($details['price']) }}</td>
+                                    <td class="align-middle">
+                                        <div class="input-group quantity mx-auto" style="width: 100px;">
+                                            <div class="input-group-btn">
+                                                <button class="btn btn-sm btn-primary btn-minus" >
+                                                <i class="fa fa-minus"></i>
+                                                </button>
+                                            </div>
+                                            <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value=" {{ $details['quantity'] }}">
+                                            <div class="input-group-btn">
+                                                <button class="btn btn-sm btn-primary btn-plus">
+                                                    <i class="fa fa-plus"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="align-middle">Vnd {{ number_format($total) }}</td>
+                                    <td class="align-middle">
+                                        <button class="btn btn-sm btn-danger" ><a data-href=""
+                                            class="btn btn-danger btn-sm fa fa-window-close"
+                                            id="{{ $id }}">Xóa</a></button>
+                                    </td>
+                                </tr>
                                 @endforeach
+                            </tbody>
                             @endif
-                        </tbody>
                     </table>
                 </div>
             </div>
