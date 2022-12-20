@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('test-lang', function () {
+    $ss_locale = session()->get('lang');
+    if ($ss_locale){
+        App::setlocale( $ss_locale);
+    }
+    echo __('messages.welcome');
+});
+
+Route::get('change-lang/{locale}', function ($locale) {
+    session(['lang' => $locale]);
+    return redirect('/test-lang');
 });
